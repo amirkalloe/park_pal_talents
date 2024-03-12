@@ -1,0 +1,12 @@
+{
+    "python.formatting.provider": "none",
+    "python.analysis.typeCheckingMode": "basic",
+    // "python.linting.flake8Enabled": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "python.linting.flake8Args": ["--max-line-length=120"]
+}

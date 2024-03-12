@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "park-pal-talents"
+version = "0.1.0"
+description = ""
+authors = ["Amir Kalloe <amir.kalloe@ictu.nl>"]
+readme = "README.md"
+packages = [{include = "park_pal_talents"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+esptool = "^4.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
