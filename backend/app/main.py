@@ -20,6 +20,7 @@ app = FastAPI(
     docs_url="/api-docs",
     redoc_url=None,
     swagger_ui_parameters={"displayRequestDuration": True},
+    root_path="/"
 )
 
 # Add CORS middleware
