@@ -47,5 +47,5 @@ async def create_sensor_data(park: park.SensorDataIn, db: Session = Depends(get_
 async def get_all_sensor_data(db: Session = Depends(get_db)):
     return db.execute(select(SensorData)).scalars().all()
 
-if __name__ == "__main__":
-    uvicorn.run(app, host='0.0.0.0', port=8000)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host='0.0.0.0', port=8000)
