@@ -28,3 +28,4 @@ d/\\tmp*
 env_windows
 backend/.env
 mnt
+.lock
