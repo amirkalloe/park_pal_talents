@@ -6,7 +6,7 @@ authors = ["Amir Kalloe <amir.kalloe@data-talents>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 fastapi = "^0.109.2"
 pydantic = "^2.6.1"
 sqlalchemy = "^2.0.26"

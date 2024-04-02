@@ -1,11 +1,17 @@
-First install python 3.1:
+First install python 3.12:
 ``sudo apt-get install python3.12``
 Then install poetry:
 ``sudo apt install python3-poetry``
+Make sure to use ptyhon 3.12:
+``poetry env use 3.12``
 Then install the dependencies using poetry:
 ``poetry install``
-Then install the dependencies using poetry:
-``poetry install``
+
+Set up the database
+``sudo apt install sqlite``
+``make migration_upgrade_base``
+
+
 
 First erase the flash memory:
 ``poetry run esptool.py --chip esp32 --port /dev/ttyUSBCOM6 erase_flash``

@@ -2,8 +2,8 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from app.sql_app.database import SQLALCHEMY_SQLLITE_DATABASE_URL
-from app.sql_app.database import Base
+from app.database.database import SQLALCHEMY_SQLLITE_DATABASE_URL
+from app.database.database import Base
 from app import models # noqa
 
 from alembic import context

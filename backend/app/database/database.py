@@ -1,9 +1,11 @@
+from typing import Any, Generator
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
+from sqlalchemy.orm.session import Session
 from sqlalchemy_utils import create_database, database_exists
 
-SQLALCHEMY_SQLLITE_DATABASE_URL = "sqlite:///app/sql_app/sql_app.db"
+SQLALCHEMY_SQLLITE_DATABASE_URL = "sqlite:///app/database/park_pal_db.sqlite"
 
 engine = create_engine(
     SQLALCHEMY_SQLLITE_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -12,7 +14,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
-def get_db():
+def get_db() -> Generator[Session, Any, None]:
     db = SessionLocal()
     if not database_exists(engine.url):
         create_database(engine.url)

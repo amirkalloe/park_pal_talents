@@ -3,4 +3,4 @@ dev:
 migration_upgrade_base:
 	poetry run alembic -c alembic/alembic.ini upgrade head
 streamlit_dev:
-	poetry run streamlit run Homepage.py
+	poetry run streamlit run streamlit/Homepage.py

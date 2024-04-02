@@ -5,7 +5,7 @@ from sqlalchemy import select
 from typing import List
 from datetime import datetime
 
-from app.sql_app.database import get_db
+from app.database.database import get_db
 from app.models.park import SensorData
 from app.schemas import park
 import uvicorn
@@ -20,7 +20,7 @@ app = FastAPI(
     docs_url="/api-docs",
     redoc_url=None,
     swagger_ui_parameters={"displayRequestDuration": True},
-    root_path="/"
+    root_path="/api"
 )
 
 # Add CORS middleware
@@ -47,5 +47,5 @@ async def create_sensor_data(park: park.SensorDataIn, db: Session = Depends(get_
 async def get_all_sensor_data(db: Session = Depends(get_db)):
     return db.execute(select(SensorData)).scalars().all()
 
-# if __name__ == "__main__":
-#     uvicorn.run(app, host='0.0.0.0', port=8000)
+if __name__ == "__main__":
+    uvicorn.run(app, host='0.0.0.0', port=8000)
