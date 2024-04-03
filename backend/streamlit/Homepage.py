@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Functie om tijdreeksgegevens op te halen van de FastAPI-server
 def fetch_time_series_data():
-    response = requests.get("http://0.0.0.0:8000/sensor-data/")
+    response = requests.get("http://0.0.0.0:8000/api/sensor-data/")
     if response.status_code == 200:
         data = response.json()
         df = pd.DataFrame(data)
