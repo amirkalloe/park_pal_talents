@@ -1,12 +1,13 @@
+-- SQLite
 -- delete from sensor_data;
 
 WITH RECURSIVE
   date_range(d) AS (
-    VALUES(DATE('2023-01-01')) -- Start date (change as needed)
+    VALUES(DATE('2024-01-01')) -- Start date (change as needed)
     UNION ALL
     SELECT DATE(d, '+1 day')
     FROM date_range
-    WHERE d < DATE('2023-04-30') -- End date (change as needed)
+    WHERE d < DATE('2024-04-03') -- End date (change as needed)
   )
 INSERT INTO sensor_data (sensor_id, distance, created_date)
 SELECT
