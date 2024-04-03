@@ -12,11 +12,11 @@ ENV YOUR_ENV=${YOUR_ENV} \
 RUN apt-get update && \
   apt-get -y install sudo
 
-ADD ./backend/app /backend/app
-ADD ./backend/alembic /backend/alembic
-COPY ./backend/poetry.lock /backend/poetry.lock
-COPY ./backend/pyproject.toml /backend/pyproject.toml
-COPY ./backend/start.sh /backend/start.sh
+ADD ./app /backend/app
+ADD ./alembic /backend/alembic
+COPY ./poetry.lock /backend/poetry.lock
+COPY ./pyproject.toml /backend/pyproject.toml
+COPY ./start.sh /backend/start.sh
 
 WORKDIR /backend
 
@@ -37,6 +37,5 @@ RUN chown -R nonroot:nonroot /backend
 RUN chmod 777 /backend/start.sh
 
 USER nonroot
-EXPOSE 8000:8000
-EXPOSE 8501:8501
+EXPOSE 8000
 CMD ["./start.sh"]

@@ -1,0 +1,43 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api.Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "8501:8501"
+    networks:
+      - app-network
+    environment:
+      - MPLCONFIGDIR=/tmp
+
+  # sqlite:
+  #   image: alpine
+  #   volumes:
+  #     - ./app/database:/data/db
+  #   # command: > 
+  #   #   sh -c "cp /data/db/park_pal_db.sqlite /data/db/db.sqlite &&
+  #   #          sqlite3 /data/db/db.sqlite"
+
+  # sqlitebrowser:
+  #   image: linuxserver/sqlitebrowser
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - ./app/database:/data/db
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  sqlite_data:
+    driver: local

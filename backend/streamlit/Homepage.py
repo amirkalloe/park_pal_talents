@@ -1,11 +1,15 @@
 import streamlit as st
 import requests
 import pandas as pd
+import os
 import matplotlib.pyplot as plt
+
+# This code sets the MPLCONFIGDIR environment variable to /tmp/matplotlib/, which should be writable by all users.
+os.environ['MPLCONFIGDIR'] = "/tmp/matplotlib/"
 
 # Functie om tijdreeksgegevens op te halen van de FastAPI-server
 def fetch_time_series_data():
-    response = requests.get("http://0.0.0.0:8000/api/sensor-data/")
+    response = requests.get("http://api:8000/api/sensor-data/", timeout=5.0)
     if response.status_code == 200:
         data = response.json()
         df = pd.DataFrame(data)
@@ -53,7 +57,8 @@ def main():
     st.markdown(css, unsafe_allow_html=True)
 
     # House of Talents logo toevoegen
-    logo_path = "house_of_talents_logo.png"  # Vervang door het daadwerkelijke logobestandspad
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    logo_path = os.path.join(current_dir, "house_of_talents_logo.png")
     st.image(logo_path, width=200)
 
     st.title("Afstand tot object in parkeergarage House Of Talents")
