@@ -18,7 +18,7 @@ This repository contains the code for the Park Pal Talents project.
 ``sudo apt-get install python3.12``
 2. Then install poetry:
 ``sudo apt install python3-poetry``
-3. Make sure to use ptyhon 3.12:
+3. Make sure to use pyhon 3.12:
 ``poetry env use 3.12``
 4. Then install the dependencies using poetry:
 ``poetry install``
