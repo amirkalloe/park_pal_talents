@@ -20,21 +20,6 @@ services:
     environment:
       - MPLCONFIGDIR=/tmp
 
-  # sqlite:
-  #   image: alpine
-  #   volumes:
-  #     - ./app/database:/data/db
-  #   # command: > 
-  #   #   sh -c "cp /data/db/park_pal_db.sqlite /data/db/db.sqlite &&
-  #   #          sqlite3 /data/db/db.sqlite"
-
-  # sqlitebrowser:
-  #   image: linuxserver/sqlitebrowser
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./app/database:/data/db
-
 networks:
   app-network:
     driver: bridge
